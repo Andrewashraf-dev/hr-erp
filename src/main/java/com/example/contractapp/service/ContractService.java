@@ -1,31 +1,40 @@
 package com.example.contractapp.service;
 
-import com.example.contractapp.model.Employee;
-import com.example.contractapp.repository.EmployeeRepository;
+import com.example.contractapp.model.Contract;
+import com.example.contractapp.repository.ContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ContractService {
-    
+
     @Autowired
-    private EmployeeRepository employeeRepository;
-    
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    private ContractRepository contractRepository;
+
+    public List<Contract> getAllContracts() {
+        return contractRepository.findAll();
     }
-    
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAllByOrderByCreatedDateDesc();
+
+    public Optional<Contract> getContractById(Long id) {
+        return contractRepository.findById(id);
     }
-    
-    public Optional<Employee> getEmployeeById(Long id) {
-        return employeeRepository.findById(id);
+
+    public Contract saveContract(Contract contract) {
+        return contractRepository.save(contract);
     }
-    
-    public boolean employeeExists(String employeeId) {
-        return employeeRepository.existsByEmployeeId(employeeId);
+
+    public void deleteContract(Long id) {
+        contractRepository.deleteById(id);
+    }
+
+    public List<Contract> searchByEmployeeName(String name) {
+        return contractRepository.findByEmployeeNameInEnglishContainingIgnoreCase(name);
+    }
+
+    public List<Contract> searchByCompanyName(String companyName) {
+        return contractRepository.findByCompanyNameInEnglishContainingIgnoreCase(companyName);
     }
 }

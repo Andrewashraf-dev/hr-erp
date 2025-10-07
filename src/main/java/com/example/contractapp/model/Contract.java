@@ -1,35 +1,85 @@
-package com.example.contractapp.dto;
+package com.example.contractapp.model;
 
-public class ContractData {
-    private int id;
-    private String startDate;
-    private String endDate;
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "contracts")
+public class Contract {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "start_date")
+    private LocalDate startDate;
+    
+    @Column(name = "end_date")
+    private LocalDate endDate;
+    
+    @Column(name = "company_name_english")
     private String companyNameInEnglish;
+    
+    @Column(name = "company_name_arabic")
     private String companyNameInArabic;
+    
+    @Column(name = "employee_name_english")
     private String employeeNameInEnglish;
+    
+    @Column(name = "employee_name_arabic")
     private String employeeNameInArabic;
+    
+    @Column(name = "national_id")
     private String nationalId;
+    
+    @Column(name = "insurance_number")
     private String insuranceNumber;
+    
+    @Column(name = "title_english")
     private String titleInEnglish;
+    
+    @Column(name = "title_arabic")
     private String titleInArabic;
+    
+    @Column(name = "education_english")
     private String educationInEnglish;
+    
+    @Column(name = "education_arabic")
     private String educationInArabic;
+    
+    @Column(name = "address_english")
     private String addressInEnglish;
+    
+    @Column(name = "address_arabic")
     private String addressInArabic;
-    private String basicSalaryInEnglish;
-    private String basicSalaryInArabic;
+    
+    @Column(name = "basic_salary")
+    private BigDecimal basicSalary;
+    
+    @Column(name = "basic_salary_english_text")
     private String basicSalaryInEnglishText;
+    
+    @Column(name = "basic_salary_arabic_text")
     private String basicSalaryInArabicText;
-
-    // Getters and setters for all fields...
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
     
-    public String getStartDate() { return startDate; }
-    public void setStartDate(String startDate) { this.startDate = startDate; }
+    @Column(name = "created_at")
+    private LocalDate createdAt;
     
-    public String getEndDate() { return endDate; }
-    public void setEndDate(String endDate) { this.endDate = endDate; }
+    // Constructors
+    public Contract() {
+        this.createdAt = LocalDate.now();
+    }
+    
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    
+    public LocalDate getStartDate() { return startDate; }
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+    
+    public LocalDate getEndDate() { return endDate; }
+    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
     
     public String getCompanyNameInEnglish() { return companyNameInEnglish; }
     public void setCompanyNameInEnglish(String companyNameInEnglish) { this.companyNameInEnglish = companyNameInEnglish; }
@@ -67,15 +117,15 @@ public class ContractData {
     public String getAddressInArabic() { return addressInArabic; }
     public void setAddressInArabic(String addressInArabic) { this.addressInArabic = addressInArabic; }
     
-    public String getBasicSalaryInEnglish() { return basicSalaryInEnglish; }
-    public void setBasicSalaryInEnglish(String basicSalaryInEnglish) { this.basicSalaryInEnglish = basicSalaryInEnglish; }
-    
-    public String getBasicSalaryInArabic() { return basicSalaryInArabic; }
-    public void setBasicSalaryInArabic(String basicSalaryInArabic) { this.basicSalaryInArabic = basicSalaryInArabic; }
+    public BigDecimal getBasicSalary() { return basicSalary; }
+    public void setBasicSalary(BigDecimal basicSalary) { this.basicSalary = basicSalary; }
     
     public String getBasicSalaryInEnglishText() { return basicSalaryInEnglishText; }
     public void setBasicSalaryInEnglishText(String basicSalaryInEnglishText) { this.basicSalaryInEnglishText = basicSalaryInEnglishText; }
     
     public String getBasicSalaryInArabicText() { return basicSalaryInArabicText; }
     public void setBasicSalaryInArabicText(String basicSalaryInArabicText) { this.basicSalaryInArabicText = basicSalaryInArabicText; }
+    
+    public LocalDate getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDate createdAt) { this.createdAt = createdAt; }
 }
