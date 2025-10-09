@@ -14,10 +14,10 @@
     </parent>
 
     <groupId>com.example</groupId>
-    <artifactId>contract-generator</artifactId>
+    <artifactId>erpsystem</artifactId>
     <version>1.0.0</version>
-    <name>contract-generator</name>
-    <description>Employee Contract Generator</description>
+    <name>erpsystem</name>
+    <description>MaxAb ERP</description>
 
     <properties>
         <java.version>17</java.version>
@@ -87,7 +87,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.contractapp.ContractAppApplication</mainClass>
+                    <mainClass>com.example.erpsystem.MaxabERP</mainClass>
                 </configuration>
             </plugin>
         </plugins>

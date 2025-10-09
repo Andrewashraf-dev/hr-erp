@@ -1,6 +1,6 @@
-package com.example.contractapp.dto;
+package com.example.erpsystem.dto;
 
-public class ContractData {
+public class EmployeeData {
     private int id;
     private String startDate;
     private String endDate;

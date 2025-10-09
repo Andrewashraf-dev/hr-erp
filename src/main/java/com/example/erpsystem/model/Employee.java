@@ -1,12 +1,12 @@
-package com.example.contractapp.model;
+package com.example.erpsystem.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "contracts")
-public class Contract {
+@Table(name = "employee")  // lowercase table name is recommended
+public class Employee {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,7 +67,7 @@ public class Contract {
     private LocalDate createdAt;
     
     // Constructors
-    public Contract() {
+    public Employee() {
         this.createdAt = LocalDate.now();
     }
     

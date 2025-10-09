@@ -1,12 +1,12 @@
-package com.example.contractapp;
+package com.example.erpsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContractAppApplication {
+public class MaxabERP {
 
     public static void main(String[] args) {
-        SpringApplication.run(ContractAppApplication.class, args);
+        SpringApplication.run(MaxabERP.class, args);
     }
 }
